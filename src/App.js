@@ -4,9 +4,10 @@ import TextForm from "./components/TextForm";
 function App() {
   return (
     <>
-      <Navbar title="ReactJs"/>
-      <div className="container"><TextForm heading="Enter the text to Analyze below"/></div>
-      
+      <Navbar title="ReactJS" />
+      <div className="container">
+        <TextForm heading="Enter the text to Analyze below" />
+      </div>
     </>
   );
 }
