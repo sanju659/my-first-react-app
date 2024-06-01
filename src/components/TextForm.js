@@ -15,6 +15,17 @@ export default function TextForm(props) {
     let newText = text.toUpperCase();
     setText(newText);
   };
+  const handleClearClick = () => {
+    let newText = "";
+    setText(newText);
+  };
+  const handleCapiClick = () => {
+    const words = text.split(" ");
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    }
+    setText(words.join(" "));
+  };
 
   const [text, setText] = useState("");
 
@@ -31,11 +42,17 @@ export default function TextForm(props) {
             rows="10"
           ></textarea>
         </div>
-        <button className="btn btn-success me-5" onClick={handleUPClick}>
-          Convert to upper Case
+        <button className="btn btn-success me-3" onClick={handleUPClick}>
+          Upper Case
         </button>
-        <button className="btn btn-primary" onClick={handleLowClick}>
-          Convert to lower Case
+        <button className="btn btn-primary me-3" onClick={handleLowClick}>
+          Lower Case
+        </button>
+        <button className="btn btn-info me-3" onClick={handleClearClick}>
+          Clear Text
+        </button>
+        <button className="btn btn-warning me-3" onClick={handleCapiClick}>
+          Capitalize 
         </button>
       </div>
       <div className="container my-4">
