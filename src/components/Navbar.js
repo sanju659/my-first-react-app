@@ -12,6 +12,7 @@ export default function Navbar(props) {
             </a>
             <button
               className="navbar-toggler"
+              style={{ backgroundColor: "#c4d9f5" }}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
