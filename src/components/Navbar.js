@@ -5,9 +5,9 @@ export default function Navbar(props) {
   return (
     <>
       <div>
-        <nav className="navbar bg-dark navbar-expand-lg">
+        <nav className={`navbar bg-${props.mode} navbar-expand-lg`}>
           <div className="container-fluid">
-            <a className="navbar-brand text-light" href="#">
+            <a className={`navbar-brand text-${props.textMode}`} href="#">
               {props.title}
             </a>
             <button
@@ -29,7 +29,7 @@ export default function Navbar(props) {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a
-                    className="nav-link active text-light"
+                    className={`nav-link active text-${props.textMode}`}
                     aria-current="page"
                     href="#"
                   >
@@ -37,7 +37,7 @@ export default function Navbar(props) {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-light" href="#">
+                  <a className={`nav-link text-${props.textMode}`} href="#">
                     About
                   </a>
                 </li>
@@ -49,10 +49,28 @@ export default function Navbar(props) {
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button className="btn btn-outline-light" type="submit">
+                <button
+                  className={`btn btn-outline-${props.textMode}`}
+                  type="submit"
+                >
                   Search
                 </button>
               </form>
+              <div className="form-check form-switch ms-3">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                  onClick={props.toggleTheme}
+                />
+                <label
+                  className={`form-check-label text-${props.textMode}`}
+                  htmlFor="flexSwitchCheckDefault"
+                >
+                  Enable Dark mode
+                </label>
+              </div>
             </div>
           </div>
         </nav>
