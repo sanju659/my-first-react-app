@@ -9,20 +9,24 @@ export default function TextForm(props) {
   const handleLowClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lower case", "Success");
   };
   const handleUPClick = () => {
     // console.log("Upper Case Clicked" );
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to upper case", "Success");
   };
   const handleClearClick = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Text area is cleared", "Success");
   };
   const handleCapiClick = () => {
     const words = text.split(" ");
     for (let i = 0; i < words.length; i++) {
       words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+      props.showAlert("Text is Capitalized", "Success");
     }
     setText(words.join(" "));
   };
@@ -40,7 +44,9 @@ export default function TextForm(props) {
             className={`form-control text-${props.textMode}`}
             id="myBox"
             rows="10"
-            style={{backgroundColor: props.mode === "dark" ? "#737575" : "#fff"}}
+            style={{
+              backgroundColor: props.mode === "dark" ? "#737575" : "#fff",
+            }}
           ></textarea>
         </div>
         <button className="btn btn-success me-3" onClick={handleUPClick}>
@@ -53,7 +59,7 @@ export default function TextForm(props) {
           Clear Text
         </button>
         <button className="btn btn-warning me-3" onClick={handleCapiClick}>
-          Capitalize 
+          Capitalize
         </button>
       </div>
       <div className="container my-4">
